@@ -4,78 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Final Task 2</title>
+    <title>Final Task 1</title>
+    <style>
+        #form{
+            background-color: indianred;
+            height: 400px;
+            width: 400px;
+            margin: 10px 15px 10px 15px;
+        }
+    </style>
+    <script type="text/javascript" src="ftj.js"></script>
 </head>
-
 <body>
-<fieldset style="width: 500px; height: 500px; background-color: rgb(215, 223, 172);">
-    <div>
-        <div style="border: 1px solid; display: inline-block; padding: 20px; background-color: darksalmon;">
-            basketball products: <input type="text" id="numItems" readonly value="0"  size="5">
-            <button id="plusBtn">+</button>
-            <button id="minusBtn">-</button>
-            <br>
-            shipping and handling fee: <input type="text"  readonly id="shipping" size="5" >
-        </div>
-        <br>
-        <br>
-        <div style="border: 1px solid; display: inline-block; padding: 20px; background-color: bisque;">
-        <h1>Order Summary</h1>
-        <br>
-
-        Shipping & Handling: $4.99
-
-        <br>
-        Total Before Tax: <p style="display: inline-block;" id="notax"></p>
-        <br>
-        Estimated Tax(10%): <p style="display: inline-block;" id="tax"></p>
-
-        <br>
-
-        <h1 style="color: red; display: inline-block;">order total:</h1>  <h1 style="display: inline-block;" id="total"></h1>
-        </div>
-    </div>
-</fieldset>
-
-
-<script>
-const shipping = 4.99;
-let quantity=1;
-
-document.getElementById("shipping").value = parseFloat(shipping);
-
-
-const plusBtn = document.getElementById("plusBtn");
-const numItemsInput = document.getElementById("numItems");
-const minusBtn = document.getElementById("minusBtn");
-
-function updateNumItems(increment) {
-let numItems = parseInt(numItemsInput.value);
-numItems += increment;
-if (numItems < 0) {
-numItems = 0;
-}
-numItemsInput.value = numItems;
-
-
-const price = 15.97;
-const quantity = parseFloat(numItemsInput.value);
-const subtotal = quantity * parseFloat(price);
-const shipping = parseFloat(document.getElementById("shipping").value);
-const notax = subtotal + shipping;
-const taxrate = 0.1;
-const withtax = subtotal * taxrate;
-const total = notax + withtax;
-const tax = taxrate * notax  ;
-
-document.getElementById("notax").innerHTML = notax.toFixed(2);
-document.getElementById("total").innerHTML = total.toFixed(2);
-document.getElementById("tax").innerHTML = tax.toFixed(2);
-}
-
-plusBtn.addEventListener("click", () => updateNumItems(1));
-minusBtn.addEventListener("click", () => updateNumItems(-1));
-</script> 
-
+  <form id="form">
+    <br>
+    First Number:<input type="text" id="tb1" name="tb1"><br>
+    <br>
+    Second Number:<input type="text" id="tb2" name="tb2"><br>
+    <br>
+    RESULT:<input disabled type="text" id="Result" name="Result"><br>
+    <br>
+    <input type="button" value="Additon" onclick="add()">
+    <input type="button" name="" value="Subtraction" onclick="sub()">
+    <input type="button" name="" value="Multiply" onclick="mult()">
+    <input type="button" name="" value="Devide" onclick="div()">
+    <input type="button" name="" value="Clear" onclick="cle()">
+    <input type="button" name="" value="About" onclick="abt()   ">
+  </form>
 </body>
 </html>
